@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import Modal from '../components/Modal.jsx'
+import './SignUp.css'
 
 function scorePassword(pw=''){/* helper from shared */let s=0;if(!pw)return 0;const L={};for(let i=0;i<pw.length;i++){L[pw[i]]=(L[pw[i]]||0)+1;s+=5.0/L[pw[i]]}const v={digits:/\d/.test(pw),lower:/[a-z]/.test(pw),upper:/[A-Z]/.test(pw),nonWords:/[^\da-zA-Z]/.test(pw)};let c=0;for(const k in v)c+=v[k]?1:0;s+=(c-1)*10;s+=Math.min(20,Math.max(0,(pw.length-8)*2));return Math.max(0,Math.min(100,Math.floor(s)))}
 function StrengthBar({ value }){/* helper from shared */const t=value<30?'Weak':value<60?'Fair':value<80?'Good':'Strong';return(<div className="strength"><div className="strength-bar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={value} role="progressbar"><span style={{width:`${value}%`}}/></div><span className={`strength-label v-${t.toLowerCase()}`}>{t}</span></div>)}

@@ -2,10 +2,11 @@ import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import Stat from '../components/Stat.jsx';
 import FeatureCard from '../components/FeatureCard.jsx';
+import './Home.css'
 
 export default function Home() {
   return (
-    <div className="app-container" style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>
+    <div className="app-container">
       <Navbar />
 
       {/* HERO */}

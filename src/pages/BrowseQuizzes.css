@@ -1,0 +1,4 @@
+.browse{padding:2rem 0;}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;}
+.filters input,.filters select{padding:.6rem .8rem;border:1px solid #ddd;border-radius:10px;}
+.quiz-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}

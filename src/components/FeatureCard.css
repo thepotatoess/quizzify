@@ -1,0 +1,5 @@
+.card.feature{border:1px solid #eee;border-radius:16px;padding:1rem;background:#fff;transition:transform .15s ease, box-shadow .2s ease;}
+.card.feature:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.card.feature .icon{font-size:1.4rem;}
+.card.feature h3{margin:.25rem 0;}
+.card.feature p{color:#555;margin:0;}

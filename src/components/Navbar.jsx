@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider.jsx'
 import { supabase } from '../lib/supabaseClient'
+import './Navbar.css'
 
 export default function Navbar() {
   const { user } = useAuth()

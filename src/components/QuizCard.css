@@ -1,0 +1,8 @@
+.quiz-card{border:1px solid #eee;background:#fff;border-radius:12px;padding:1rem;display:grid;gap:.5rem;box-shadow:0 6px 18px rgba(0,0,0,.05);}
+.quiz-card header{display:flex;justify-content:space-between;align-items:center;}
+.badge{padding:.2rem .5rem;border-radius:999px;font-size:.8rem;border:1px solid #eee;}
+.badge.b-easy{background:#e8fff1;}
+.badge.b-medium{background:#eef2ff;}
+.badge.b-hard{background:#ffecec;}
+.quiz-card .meta{display:flex;gap:.6rem;flex-wrap:wrap;color:#666;font-size:.9rem;}
+.quiz-card .actions{display:flex;justify-content:flex-end;}

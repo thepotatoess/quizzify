@@ -1,0 +1,10 @@
+.create-quiz{padding:2rem 1rem;background:#f7f8ff;display:grid;place-items:center;}
+.quiz-form{width:min(900px,95vw);background:#fff;border:1px solid #ececec;border-radius:20px;padding:2rem;box-shadow:0 8px 25px rgba(0,0,0,.05);}
+.quiz-form .row-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+.quiz-form .card{border:1px solid #ececec;border-radius:12px;padding:1rem;background:#fff;}
+.question-block{display:grid;gap:.75rem;}
+.question-block .options{display:grid;gap:.5rem;margin-top:.5rem;}
+.option-row{display:grid;grid-template-columns:1fr auto auto;gap:.5rem;align-items:center;}
+.q-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;}
+.q-header label{flex:1;}
+.chk{display:flex;align-items:center;gap:.35rem;color:#444;}

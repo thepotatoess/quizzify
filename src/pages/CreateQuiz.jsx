@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../auth/AuthProvider'
 import { useNavigate } from 'react-router-dom'
+import './CreateQuiz.css'
 
 const DIFFS = ['Easy','Medium','Hard']
 
@@ -39,6 +40,11 @@ export default function CreateQuiz() {
   const removeOption = (qIndex, oIndex) => {
     const updated = [...questions]
     updated[qIndex].options.splice(oIndex,1)
+    setQuestions(updated)
+  }
+  const removeQuestion = (qIndex) => {
+    const updated = [...questions]
+    updated.splice(qIndex,1)
     setQuestions(updated)
   }
   const updateQuestion = (qIndex, value) => {
@@ -112,7 +118,10 @@ export default function CreateQuiz() {
           <h3>Questions</h3>
           {questions.map((q, qIndex) => (
             <div key={qIndex} className="question-block card">
-              <label>Question {qIndex + 1}<input placeholder="Question text" value={q.text} onChange={e => updateQuestion(qIndex, e.target.value)} required /></label>
+              <div className="q-header">
+                <label>Question {qIndex + 1}<input placeholder="Question text" value={q.text} onChange={e => updateQuestion(qIndex, e.target.value)} required /></label>
+                <button type="button" className="icon-btn" onClick={() => removeQuestion(qIndex)}>✕</button>
+              </div>
               <div className="options">
                 {q.options.map((opt, oIndex) => (
                   <div key={oIndex} className="option-row">
