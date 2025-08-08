@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../auth/AuthProvider'
@@ -15,6 +15,7 @@ export default function PlayQuiz(){
   const [score, setScore] = useState(0)
   const [timeLeft, setTimeLeft] = useState(0)
   const [done, setDone] = useState(false)
+  const [showAnswer, setShowAnswer] = useState(false)
 
   useEffect(()=>{
     (async ()=>{
@@ -28,26 +29,27 @@ export default function PlayQuiz(){
 
   // Timer per question
   useEffect(()=>{
-    if(done) return
-    const t = setInterval(()=>{
-      setTimeLeft(v=>{
-        if(v<=1){ handleAnswer(null); return quiz?.time_limit_per_question || 30 }
-        return v-1
-      })
-    },1000)
-    return ()=>clearInterval(t)
-  }, [idx, done, quiz])
+    if(done || showAnswer) return
+    if(timeLeft <= 0){ handleAnswer(null); return }
+    const t = setTimeout(()=> setTimeLeft(v => v - 1),1000)
+    return ()=>clearTimeout(t)
+  }, [timeLeft, done, showAnswer, handleAnswer])
 
   const current = useMemo(()=> questions[idx], [questions, idx])
 
-  const handleAnswer = (optionId) => {
-    if(!current) return
-    const isCorrect = current.quiz_options.find(o=>o.id===optionId)?.is_correct
-    if(isCorrect) setScore(s=>s+1)
+  const handleAnswer = useCallback((optionId) => {
+    if(!current || showAnswer) return
+    setSelected(optionId)
+    const correctId = current.quiz_options.find(o=>o.is_correct)?.id
+    if(optionId && optionId === correctId) setScore(s=>s+1)
+    setShowAnswer(true)
+  }, [current, showAnswer])
 
+  const nextQuestion = () => {
     if(idx + 1 < questions.length){
       setIdx(i=>i+1)
       setSelected(null)
+      setShowAnswer(false)
       setTimeLeft(quiz?.time_limit_per_question || 30)
     } else {
       setDone(true)
@@ -57,13 +59,12 @@ export default function PlayQuiz(){
   useEffect(()=>{
     (async ()=>{
       if(done){
-        // Persist results
         if(user){
           await supabase.from('quiz_stats').insert([{ quiz_id: id, user_id: user.id, score }])
         }
       }
     })()
-  }, [done])
+  }, [done, id, score, user])
 
   if(!quiz) return <p>Loading…</p>
   if(done) return (
@@ -85,13 +86,15 @@ export default function PlayQuiz(){
           <h3>{quiz.title}</h3>
           <div className="pill">Time left: {timeLeft}s</div>
         </header>
+        <div className="progress"><div className="progress-inner" style={{width: `${(idx/questions.length)*100}%`}}></div></div>
         <div className="q-body">
           <p className="q-text">Q{idx+1}. {current?.question_text}</p>
           <div className="opts">
             {current?.quiz_options?.map(opt => (
               <button key={opt.id}
-                className={`opt ${selected===opt.id ? 'selected' : ''}`}
-                onClick={()=>{setSelected(opt.id); handleAnswer(opt.id)}}>
+                disabled={showAnswer}
+                className={`opt ${selected===opt.id && !showAnswer ? 'selected' : ''} ${showAnswer && opt.is_correct ? 'correct' : ''} ${showAnswer && selected===opt.id && !opt.is_correct ? 'wrong' : ''}`}
+                onClick={()=>handleAnswer(opt.id)}>
                 {opt.option_text}
               </button>
             ))}
@@ -99,6 +102,9 @@ export default function PlayQuiz(){
         </div>
         <footer className="play-foot">
           <span>Score: {score}/{questions.length}</span>
+          {showAnswer && (
+            <button className="btn btn-primary" onClick={nextQuestion}>{idx + 1 === questions.length ? 'Finish' : 'Next'}</button>
+          )}
         </footer>
       </div>
     </section>
