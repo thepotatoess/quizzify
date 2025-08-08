@@ -1,0 +1,4 @@
+.navbar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.2);color:#fff;}
+.navbar.frosted{background:rgba(18,18,23,.7);}
+.nav a{color:#fff;text-decoration:none;margin-left:1rem;}
+.logo{font-weight:800;letter-spacing:.3px;}

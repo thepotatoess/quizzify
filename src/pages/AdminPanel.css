@@ -1,0 +1,4 @@
+.admin-panel{padding:2rem 0;}
+.admin-table{width:100%;border-collapse:collapse;margin-top:1rem;}
+.admin-table th,.admin-table td{padding:.5rem;text-align:left;border-bottom:1px solid #ddd;}
+.admin-table button{margin-right:.5rem;}

@@ -1,0 +1,32 @@
+.hero{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:2rem;align-items:center;padding:5rem 1.5rem;color:#fff;}
+.hero-gradient{background:radial-gradient(1200px 400px at 10% 0%,#1b1b2e 0%,#0f0f18 40%,#0b0b10 100%);}
+.hero-inner{max-width:700px;margin:0 auto;}
+.eyebrow{color:#b3b8d0;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;margin:0 0 .5rem;}
+.hero-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.05;margin:.2rem 0 1rem;}
+.text-accent{background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 22px rgba(100,108,255,.25));}
+.hero-sub{color:#c7cbe0;margin:0 0 1.25rem;}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;}
+
+.hero-visual{position:relative;height:100%;min-height:280px;}
+.blob{position:absolute;right:0;top:10%;width:min(420px,40vw);opacity:.9;filter:blur(.2px);}
+
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-top:1.5rem;}
+
+.logo-strip{background:#0b0b10;color:#c7cbe0;border-top:1px solid #1b1b28;border-bottom:1px solid #1b1b28;}
+.logos{display:flex;gap:.75rem;justify-content:center;align-items:center;padding:1.1rem 0;flex-wrap:wrap;}
+.logo-chip{font-weight:700;border:1px solid #1f2030;background:#141422;border-radius:999px;padding:.35rem .8rem;}
+
+.testimonials{background:#fafafa;color:#213547;}
+.t-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;padding:2rem 0;}
+.quote{border:1px solid #eee;border-radius:14px;padding:1rem;background:#fff;}
+.quote blockquote{margin:0 0 .5rem 0;font-size:1.05rem;}
+.quote figcaption{color:#666;font-size:.9rem;}
+
+.cta-band{padding:3rem 0;}
+.cta-card{border:1px solid #eee;border-radius:18px;padding:2rem;text-align:center;background:linear-gradient(180deg,#fff,#f7f8ff);}
+.cta-card h2{margin:.2rem 0 0.5rem;}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;}
+  .blob{position:relative;margin:1.5rem auto 0;left:auto;right:auto;}
+}

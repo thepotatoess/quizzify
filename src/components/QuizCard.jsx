@@ -1,3 +1,5 @@
+import './QuizCard.css'
+
 export default function QuizCard({ quiz, onPlay }) {
   return (
     <article className="quiz-card">

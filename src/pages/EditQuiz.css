@@ -1,0 +1,7 @@
+.create-quiz{padding:2rem 1rem;background:radial-gradient(1000px 400px at 10% -10%,#1b1b2e 0%,#0f0f18 40%,#0b0b10 100%);display:grid;place-items:center;}
+.quiz-form{width:min(980px,95vw);background:#fff;border:1px solid #eee;border-radius:16px;padding:1.25rem 1.25rem 1.75rem;box-shadow:0 10px 30px rgba(0,0,0,.08);}
+.quiz-form .row-2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.quiz-form .card{border:1px solid #eee;border-radius:12px;padding:1rem;background:#fff;}
+.question-block .options{display:grid;gap:.5rem;margin-top:.5rem;}
+.option-row{display:grid;grid-template-columns:1fr auto auto;gap:.5rem;align-items:center;}
+.chk{display:flex;align-items:center;gap:.35rem;color:#444;}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../components/Modal.jsx'
+import './Login.css'
 
 
 function StrengthBar({ value }){const t=value<30?'Weak':value<60?'Fair':value<80?'Good':'Strong';return(<div className="strength"><div className="strength-bar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={value} role="progressbar"><span style={{width:`${value}%`}}/></div><span className={`strength-label v-${t.toLowerCase()}`}>{t}</span></div>)}
