@@ -1,0 +1,11 @@
+.play-wrap{min-height:70vh;display:grid;place-items:center;padding:2rem 1rem;background:#f7f8ff;}
+.play-card{width:min(720px,95vw);background:#fff;border:1px solid #eee;border-radius:16px;padding:1.25rem;box-shadow:0 10px 30px rgba(0,0,0,.08);display:grid;gap:1rem;}
+.play-head{display:flex;justify-content:space-between;align-items:center;}
+.pill{border:1px solid #eee;background:#fafafa;border-radius:999px;padding:.25rem .6rem;font-size:.9rem;}
+.q-body{display:grid;gap:.75rem;}
+.q-text{font-weight:600;}
+.opts{display:grid;gap:.5rem;}
+.opt{padding:.8rem 1rem;border:1px solid #000;border-radius:10px;background:#fff;text-align:left;cursor:pointer;color:black;}
+.opt:hover{background:#f7f7fb;}
+.opt.selected{outline:2px solid #8a5cff66;background:#f2eefe;}
+.play-foot{display:flex;justify-content:space-between;align-items:center;}

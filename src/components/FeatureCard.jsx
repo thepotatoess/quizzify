@@ -1,3 +1,5 @@
+import './FeatureCard.css'
+
 export default function FeatureCard({ icon, title, desc }) {
   return (
     <article className="card feature">

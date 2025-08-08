@@ -1,3 +1,5 @@
+import './Stat.css'
+
 export default function Stat({ kValue, text }) {
   return (
     <div className="stat">

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../auth/AuthProvider'
 import { useNavigate } from 'react-router-dom'
+import './CreateQuiz.css'
 
 const DIFFS = ['Easy','Medium','Hard']
 

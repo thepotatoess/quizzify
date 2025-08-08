@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../auth/AuthProvider'
 import { useNavigate } from 'react-router-dom'
+import './AdminPanel.css'
 
 export default function AdminPanel(){
   const { user } = useAuth()
@@ -41,8 +42,8 @@ export default function AdminPanel(){
                 <td>{q.category_name}</td>
                 <td>{q.difficulty}</td>
                 <td>
-                  <button onClick={()=>nav(`/edit-quiz/${q.id}`)}>Edit</button>
-                  <button onClick={()=>deleteQuiz(q.id)}>Delete</button>
+                  <button className="btn btn-ghost" onClick={()=>nav(`/edit-quiz/${q.id}`)}>Edit</button>
+                  <button className="btn btn-ghost" onClick={()=>deleteQuiz(q.id)}>Delete</button>
                 </td>
               </tr>
             ))}

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
 import QuizCard from '../components/QuizCard.jsx'
+import './BrowseQuizzes.css'
 
 export default function BrowseQuizzes() {
   const nav = useNavigate()
